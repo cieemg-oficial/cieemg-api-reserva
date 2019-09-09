@@ -12,12 +12,29 @@ routes.get('/estudante', (request, response, next) => {
 
 routes.post('/cadastroEstudante', (request, response, next) => {
     estudante.cadastrarEstudante(request.body).then(data => {
-        response.send(200, 'Estudante cadastrado');
+        response.send(200, 'Cadastro realizado com sucesso!');
     }).catch(err => {
         response.send(400, err)
     });
     next();
 });
+
+routes.put('/atualizaEstudante', (request, response, next) => {
+    estudante.cadastrarEstudante(request.body).then(data => {
+        response.send(200, 'Dados atualizados com sucesso!');
+    }).catch(err => {
+        response.send(400, err);
+    });
+    next();
+})
+
+routes.del('/deletaEstudante', (request, reponse, next) => {
+    estudante.deletaEstudante(request.body).then(data => {
+        response.send(200, 'Dados excluidos com sucesso!');
+    }).catch(err => {
+        response.send(400, err);
+    })
+})
 
 
 module.exports = routes;

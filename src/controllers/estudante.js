@@ -13,7 +13,7 @@ function buscarEstudantes(){
             console.error('error: ', err);
             reject(err)
         })
-    })
+    });
 }
 
 function cadastrarEstudante(estudante){
@@ -24,8 +24,32 @@ function cadastrarEstudante(estudante){
             console.error('error: ', err)
             reject(err)
         })
-    })
-
+    });
 }
 
-module.exports = { buscarEstudantes, cadastrarEstudante }
+function atualizaEstudante(estudante){
+    return new Promise((resolve, reject) => {
+        model.update(escola, {
+            where: {id:escola.id}
+        }).then(res => {
+            resolve(res);
+        }).catch(err => {
+            console.error('error: ', err);
+            reject(err);
+        })
+    });
+}
+
+function deletaEstudante(estudante){
+    return new Promise((resolve, reject) => {
+        model.destroy({ where:{ id:estudante.id }})
+        .then(res => {
+            resolve(res);
+        }).catch(err => {
+            console.error('error: ', err);
+            reject(err);
+        })
+    })
+}
+
+module.exports = { buscarEstudantes, cadastrarEstudante, atualizaEstudante, deletaEstudante }
