@@ -4,9 +4,9 @@ const escola = require('../controllers/escola');
 
 routes.get('/escolas', (req, res) => {
     escola.buscarEscolas().then(data => {
-        res.json(200, data);
+        res.status(200).send(data);
     }).catch(err => {
-        res.send(503, err);
+        res.status(503).send(err);
     })
 });
 
