@@ -2,35 +2,35 @@ const express = require('express');
 const routes = express.Router();
 const estudante = require('../controllers/estudante');
 
-routes.get('/estudante', (request, response) => {
+routes.get('/estudante', (req, res) => {
     estudante.buscarEstudantes().then(data => {
-        response.send(200, data)
+        res.send(200, data)
     }).catch(err => {
-        response.send(503, err)
+        res.send(503, err)
     });
 });
 
-routes.post('/cadastroEstudante', (request, response) => {
-    estudante.cadastrarEstudante(request.body).then(data => {
-        response.send(200, 'Cadastro realizado com sucesso!');
+routes.post('/cadastroEstudante', (req, res) => {
+    estudante.cadastrarEstudante(req.body).then(data => {
+        res.send(200, 'Cadastro realizado com sucesso!');
     }).catch(err => {
-        response.send(400, err)
+        res.send(400, err)
     });
 });
 
-routes.put('/atualizaEstudante', (request, response ) => {
-    estudante.cadastrarEstudante(request.body).then(data => {
-        response.send(200, 'Dados atualizados com sucesso!');
+routes.put('/atualizaEstudante', (req, res ) => {
+    estudante.cadastrarEstudante(req.body).then(data => {
+        res.send(200, 'Dados atualizados com sucesso!');
     }).catch(err => {
-        response.send(400, err);
+        res.send(400, err);
     });
 })
 
-routes.delete('/deletaEstudante', (request, reponse) => {
-    estudante.deletaEstudante(request.body).then(data => {
-        response.send(200, 'Dados excluidos com sucesso!');
+routes.delete('/deletaEstudante', (req, res) => {
+    estudante.deletaEstudante(req.body).then(data => {
+        res.send(200, 'Dados excluidos com sucesso!');
     }).catch(err => {
-        response.send(400, err);
+        res.send(400, err);
     })
 })
 

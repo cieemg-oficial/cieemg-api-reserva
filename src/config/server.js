@@ -8,20 +8,4 @@ server.use(cors);
 
 server.use(routes);
 
-// const cors = corsMiddleware.Options = {
-//     preflightMaxAge: 5,
-//     origins: ['*'],
-//     allowHeaders: ['*'],
-//     exposeHeaders: ['*']
-// }
-
-// server.pre(cors.preflightMaxAge);
-// server.use(cors)
-
-// server.use(restify.plugins.bodyParser({
-//     mapParams: true,
-//     mapFiles: false,
-//     overrideParams: false
-// }));
-
 module.exports = {server}

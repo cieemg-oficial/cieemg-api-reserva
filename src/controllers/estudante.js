@@ -29,8 +29,8 @@ function cadastrarEstudante(estudante){
 
 function atualizaEstudante(estudante){
     return new Promise((resolve, reject) => {
-        model.update(escola, {
-            where: {id:escola.id}
+        model.update(estudante, {
+            where: {id:estudante.id}
         }).then(res => {
             resolve(res);
         }).catch(err => {
